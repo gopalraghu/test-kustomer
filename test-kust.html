@@ -10,7 +10,7 @@
                 console.log(contextJSON)
                 var template = $("#mp_template").html();
                 $("#panel").html(Mustache.render(template, contextJSON));
-                let timerID = setTimeout(()=>{
+                let timerID = setTimeout(function(){
                     getTimer()
                 }, 5000);
                 Kustomer.resize();
@@ -21,6 +21,7 @@
         {
                     console.log("calling timer api")
                     const res = await fetch('https://worldtimeapi.org/api/timezone/Asia/Dhaka');
+                    console.log("res",res)
                     $("#timer").text(res.datetime)
         }
     </script>
