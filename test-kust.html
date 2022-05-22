@@ -8,8 +8,8 @@
           // Kustomer.initialize is required for card visibility in the panel.
           Kustomer.initialize(function (contextJSON) {
               console.log(contextJSON)
-            //   var template = $("#mp_template").html();
-            //   $("#panel").html(Mustache.render(template,contextJSON ));
+              var template = $("#mp_template").html();
+              $("#panel").html(Mustache.render(template,contextJSON ));
               Kustomer.resize();
           });
             
