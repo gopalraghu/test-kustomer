@@ -8,22 +8,20 @@
           // Kustomer.initialize is required for card visibility in the panel.
           Kustomer.initialize(function (contextJSON) {
               console.log(contextJSON)
-              // var order_details = contextJSON.order;
-              // var newlabel = document.createElement("Label");
-              // newlabel.innerHTML = order_details.properties.order_id;
-              // document.getElementById("container").appendChild(newlabel);
+              var template = $("#mp_template").html();
+              var text = Mustache.render(template,contextJSON );
               Kustomer.resize();
           });
       }
   </script>
 </head>
 <body onload="loadContext()">
-
+<script id="mp_template" type="text/template">
 <div class="container">
   <div class="row">
     <div class="col bg-success">
         <label for="staticEmail" class="col-sm-2 col-form-label">ORDER #</label>
-        <label for="staticEmail" class="col-sm-2 col-form-label">1234567890</label>
+        <label for="staticEmail" class="col-sm-2 col-form-label">{{order.properties.order_id}}</label>
     </div>
     <div class="col bg-warning">
         <label for="staticEmail" class="col-sm-2 col-form-label">ORDER STATUS</label>
@@ -51,8 +49,9 @@
     </div>
   </div>
 </div>
+</script>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
- 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
 </body>
 </html>
