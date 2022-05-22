@@ -1,24 +1,31 @@
-
 <html lang="en">
+
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <script src="https://cdn.kustomerapp.com/card-js/latest/kustomer-card.min.js"></script>
-  <script>
-      function loadContext() {
-          // Kustomer.initialize is required for card visibility in the panel.
-          Kustomer.initialize(function (contextJSON) {
-              console.log(contextJSON)
-              var template = $("#mp_template").html();
-              $("#panel").html(Mustache.render(template,contextJSON ));
-              Kustomer.resize();
-          });
-            
-      }
-  </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.kustomerapp.com/card-js/latest/kustomer-card.min.js"></script>
+    <script>
+        function loadContext() {
+            // Kustomer.initialize is required for card visibility in the panel.
+            Kustomer.initialize(function (contextJSON) {
+                console.log(contextJSON)
+                var template = $("#mp_template").html();
+                $("#panel").html(Mustache.render(template, contextJSON));
+                let timerID = setTimeout(() => {
+                    console.log("calling timer api")
+                    const res = await fetch('https://worldtimeapi.org/api/timezone/Asia/Dhaka');
+                    $("#timer").html=res.datetime
+                }, 60000);
+               
+                Kustomer.resize();
+            });
+
+        }
+    </script>
 </head>
+
 <body onload="loadContext()">
-<h6>Order Details</h6>
-<script id="mp_template" type="text/template">
+    <h6>Order Details</h6>
+    <script id="mp_template" type="text/template">
 <div class="container">
   <div class="row">
     <div class="col ">
@@ -28,6 +35,10 @@
     <div class="col ">
         <label class="col-sm-3">Status</label>
         <label >{{order.event}}</label>
+    </div>
+   <div class="col ">
+        <label class="col-sm-3">Timer</label>
+        <label id="timer" >{{order.event}}</label>
     </div>
   </div>
   <div class="row">
@@ -71,13 +82,14 @@
     </div>
   </div>
 </div>
-</script> 
-<div id="panel">
+</script>
+    <div id="panel">
 
-</div>
+    </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
 </body>
+
 </html>
