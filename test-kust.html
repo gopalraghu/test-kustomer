@@ -41,23 +41,22 @@
     </div>
   </div>
   <div class="row">
-    <div class="col ">
-        
+    <div class="col ">  
         <label for="staticEmail" >Products</label>
         {{#order.properties.product_name}}
-        <label for="staticEmail" >{{.}}</label>
+        <label for="staticEmail" >{{.}}</label> </br>
         {{/order.properties.product_name}}
     </div>
     <div class="col">
         <label for="staticEmail" >Qty</label>
         {{#order.properties.product_quantity}}
-        <label for="staticEmail" >{{.}}</label>
+        <label for="staticEmail" >{{.}}</label></br>
         {{/order.properties.product_quantity}}
     </div>
     <div class="col">
         <label for="staticEmail" >Prize</label>
         {{#order.properties.product_price}}
-        <label for="staticEmail" >{{.}}</label>
+        <label for="staticEmail" >{{.}}</label></br>
         {{/order.properties.product_price}}
     </div>
   </div>
