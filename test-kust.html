@@ -17,7 +17,7 @@
   </script>
 </head>
 <body onload="loadContext()">
-    <h1>Lets try our best</h1>
+<h6>Order Details</h6>
 <script id="mp_template" type="text/template">
 <div class="container">
   <div class="row">
@@ -58,6 +58,16 @@
         {{#order.properties.product_price}}
         <label class="col-sm-9" for="staticEmail" >{{.}}</label></br>
         {{/order.properties.product_price}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col ">  
+    </div>
+    <div class="col ">  
+        <button type="button" class="btn btn-primary">Cancel Order</button>
+    </div>
+    <div class="col ">  
+        <button type="button" class="btn btn-secondary">Issue Refund</button>
     </div>
   </div>
 </div>
