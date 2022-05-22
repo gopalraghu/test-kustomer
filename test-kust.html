@@ -5,7 +5,8 @@
             function loadContext() {
                 // Kustomer.initialize is required for card visibility in the panel.
                 Kustomer.initialize(function(contextJSON) {
-                    var order_details = contextJSON.kobject;
+                        console.log(contextJSON)
+                        var order_details = contextJSON.kobject;
                         var newlabel = document.createElement("Label");
                         newlabel.innerHTML = order_details.title;
                         document.getElementById("container").appendChild(newlabel);
