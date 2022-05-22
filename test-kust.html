@@ -21,7 +21,7 @@
         {
                     console.log("calling timer api")
                     const res =  fetch('https://worldtimeapi.org/api/timezone/Asia/Dhaka');
-                    console.log("res",res.json(),res)
+                    console.log("res",res)
                     $("#timer").text(res.body.datetime)
         }
     </script>
