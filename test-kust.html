@@ -5,7 +5,7 @@
             function loadContext() {
                 // Kustomer.initialize is required for card visibility in the panel.
                 Kustomer.initialize(function(contextJSON) {
-                    var customer_attributes = contextJSON.customer.attributes;
+                    var customer_attributes = contextJSON.customer;
                     if (customer_attributes.emails.length) {
                         var email = customer_attributes.emails[0].email;
                         console.log("email"+email)
