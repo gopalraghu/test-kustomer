@@ -6,15 +6,10 @@
                 // Kustomer.initialize is required for card visibility in the panel.
                 Kustomer.initialize(function(contextJSON) {
                     var order_details = contextJSON.kobject;
-                    if (customer_attributes.emails.length) {
                         var newlabel = document.createElement("Label");
                         newlabel.innerHTML = order_details.title;
                         document.getElementById("container").appendChild(newlabel);
                         Kustomer.resize();
-                    } else {
-                        // Closes the card if the customer has no email addresses.
-                        Kustomer.close();
-                    }
                 });
             }
         </script>
