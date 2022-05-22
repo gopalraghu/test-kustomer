@@ -8,6 +8,7 @@
                     var customer_attributes = contextJSON.customer.attributes;
                     if (customer_attributes.emails.length) {
                         var email = customer_attributes.emails[0].email;
+                        console.log("email"+email)
                         var a = document.createElement('a');
                         var linkText = document.createTextNode("Google");
                         a.appendChild(linkText);
