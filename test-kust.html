@@ -8,9 +8,9 @@
           // Kustomer.initialize is required for card visibility in the panel.
           Kustomer.initialize(function (contextJSON) {
               console.log(contextJSON)
-              Kustomer.resize();
               var template = $("#mp_template").html();
-             $("#panel").html(Mustache.render(template,contextJSON ));
+              $("#panel").html(Mustache.render(template,contextJSON ));
+              Kustomer.resize();
           });
             
       }
@@ -26,7 +26,7 @@
     </div>
     <div class="col ">
         <label for="staticEmail" class="col-sm-2 col-form-label">Status</label>
-        <label for="staticEmail" class="col-sm-2 col-form-label">{{order.properties.event}}</label>
+        <label for="staticEmail" class="col-sm-2 col-form-label">{{order.event}}</label>
     </div>
   </div>
   <div class="row">
@@ -43,9 +43,9 @@
     <div class="col ">
         
         <label for="staticEmail" class="col-sm-2 col-form-label">Products</label>
-        {{#order.properties.currency.product_name}}
+        {{#order.properties.product_name}}
         <label for="staticEmail" class="col-sm-2 col-form-label">{{name}}</label>
-        {{/order.properties.currency.product_name}}
+        {{/order.properties.product_name}}
     </div>
     <div class="col">
         <label for="staticEmail" class="col-sm-2 col-form-label"></label>
