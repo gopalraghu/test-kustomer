@@ -3,7 +3,7 @@
         <script src="https://cdn.kustomerapp.com/card-js/latest/kustomer-card.min.js"></script>
         <script>
             function loadContext() {
-                // Kustomer.initialize is required for card visibility in the panel.
+                // Kustomer.initialize is required for card visibility in panel.
                 Kustomer.initialize(function(contextJSON) {
                     var customer_attributes = contextJSON.customer.attributes;
                     if (customer_attributes.emails.length) {
@@ -17,22 +17,37 @@
                         document.getElementById("container").appendChild(a);
                         Kustomer.resize();
                     } else {
-                        // Closes the card if the customer has no email addresses.
+                        // customer has no email addresses - close the card
                         Kustomer.close();
                     }
                 });
             }
+          // Add comment about modal
+            function initAndShowModal() {
+                const options = {
+                    id: 'myModal',
+                    title: 'Hello from Card-JS!',
+                    url: 'https://www.kustomer.com',
+                    height: 500,
+                    width: 500,
+                };
+                Kustomer.modal.init(options, (data) => {
+                    Kustomer.modal.show('myModal');
+                });
+            }
         </script>
     </head>
+    // Add
     <body onload="loadContext()">
         <div class="ui card mainCard">
             <div class="content">
                 <div class="ui header cardHeader">
-                    Google Search
+                    Kustomer Modals
                 </div>
             </div>
             <hr class="lineBreak">
             <div id="container" class="ui one textArea"></div>
+            <button onclick="initAndShowModal()">Click Me To Launch A Modal</button>
         </div>
     </body>
 </html>
