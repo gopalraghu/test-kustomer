@@ -22,35 +22,43 @@
 <div class="container">
   <div class="row">
     <div class="col ">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Order #</label>
-        <label for="staticEmail" class="col-sm-2 col-form-label">{{order.properties.order_id}}</label>
+        <label >Order #</label>
+        <label >{{order.properties.order_id}}</label>
     </div>
     <div class="col ">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Status</label>
-        <label for="staticEmail" class="col-sm-2 col-form-label">{{order.event}}</label>
+        <label >Status</label>
+        <label >{{order.event}}</label>
     </div>
   </div>
   <div class="row">
     <div class="col ">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Cart Amount</label>
-        <label for="staticEmail" class="col-sm-2 col-form-label">{{order.properties.cart_amount}}</label>
+        <label >Cart Amount</label>
+        <label>{{order.properties.cart_amount}}</label>
     </div>
     <div class="col">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Currency</label>
-        <label for="staticEmail" class="col-sm-2 col-form-label">{{order.properties.currency}}</label>
+        <label >Currency</label>
+        <label >{{order.properties.currency}}</label>
     </div>
   </div>
   <div class="row">
     <div class="col ">
         
-        <label for="staticEmail" class="col-sm-2 col-form-label">Products</label>
+        <label for="staticEmail" >Products</label>
         {{#order.properties.product_name}}
-        <label for="staticEmail" class="col-sm-2 col-form-label">{{.}}</label>
+        <label for="staticEmail" >{{.}}</label>
         {{/order.properties.product_name}}
     </div>
     <div class="col">
-        <label for="staticEmail" class="col-sm-2 col-form-label"></label>
-        <label for="staticEmail" class="col-sm-2 col-form-label"></label>
+        <label for="staticEmail" >Qty</label>
+        {{#order.properties.product_quantity}}
+        <label for="staticEmail" >{{.}}</label>
+        {{/order.properties.product_quantity}}
+    </div>
+    <div class="col">
+        <label for="staticEmail" >Prize</label>
+        {{#order.properties.product_price}}
+        <label for="staticEmail" >{{.}}</label>
+        {{/order.properties.product_price}}
     </div>
   </div>
 </div>
