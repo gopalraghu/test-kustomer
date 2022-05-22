@@ -9,7 +9,7 @@
           Kustomer.initialize(function (contextJSON) {
               console.log(contextJSON)
               var template = $("#mp_template").html();
-              var text = Mustache.render(template,contextJSON );
+              var text = Mustache.render(template,{"name":"Gopal"} );
               Kustomer.resize();
           });
       }
@@ -21,7 +21,7 @@
   <div class="row">
     <div class="col bg-success">
         <label for="staticEmail" class="col-sm-2 col-form-label">ORDER #</label>
-        <label for="staticEmail" class="col-sm-2 col-form-label">{{order.properties.order_id}}</label>
+        <label for="staticEmail" class="col-sm-2 col-form-label">{{name}}</label>
     </div>
     <div class="col bg-warning">
         <label for="staticEmail" class="col-sm-2 col-form-label">ORDER STATUS</label>
