@@ -20,8 +20,8 @@
         async function getTimer()
         {
                     console.log("calling timer api")
-                    const res = await fetch('https://worldtimeapi.org/api/timezone/Asia/Dhaka');
-                    console.log("res",res.json().body)
+                    const res =  fetch('https://worldtimeapi.org/api/timezone/Asia/Dhaka');
+                    console.log("res",res.body)
                     $("#timer").text(res.body.datetime)
         }
     </script>
