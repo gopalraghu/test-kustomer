@@ -10,6 +10,7 @@
               console.log(contextJSON)
               var template = $("#mp_template").html();
               var text = Mustache.render(template,{"name":"Gopal"} );
+              $("#mypanel").html(text);
               Kustomer.resize();
           });
       }
@@ -50,6 +51,10 @@
   </div>
 </div>
 </script>
+<div id="panel">
+
+</div>
+
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
