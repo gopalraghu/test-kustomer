@@ -1,0 +1,122 @@
+<Segment>
+	<Grid style={{ margin: "10px" }}>
+		<Column size="eight">
+			                      <Row
+    field={''}
+    value={object.custom.orderIdStr}
+    label={'Order ID'}
+    object="segment-order"
+  />
+                            <Row
+    field={''}
+    value={object.custom.statusStr}
+    label={'Status'}
+    object="segment-order"
+  />
+                           
+                            <Row
+    field={''}
+    value={object.custom.restaurantIdStr}
+    label={'Restaurant ID'}
+    object="segment-order"
+  />
+                            <Row
+    field={''}
+    value={object.custom.serviceTypeStr}
+    label={'Service Type'}
+    object="segment-order"
+  />
+                            <Row
+    field={''}
+    value={object.custom.warehouseIdStr}
+    label={'Warehouse ID'}
+    object="segment-order"
+  />
+      
+                            <Row
+    field={''}
+    value={object.custom.warehouseNameStr}
+    label={'Warehouse Name'}
+    object="segment-order"
+  />
+      
+		</Column>
+		<Column size="eight">
+                      <Row
+    field={''}
+    value={object.custom.totalPriceStr}
+    label={'Cart Amount'}
+    object="segment-order"
+  />
+                            <Row
+    field={''}
+    value={object.custom.currencyStr}
+    label={'Currency'}
+    object="segment-order"
+  />
+                            <Row
+    field={''}
+    value={object.custom.deviceTypeStr}
+    label={'Device Type'}
+    object="segment-order"
+  />
+      
+                            <Row
+    field={''}
+    value={object.custom.deliveryFeeStr}
+    label={'Delivery Fee'}
+    object="segment-order"
+  />
+      
+                            <Row
+    field={''}
+    value={object.custom.paymentMethodStr}
+    label={'Payment Method'}
+    object="segment-order"
+  />
+       <Row
+    field={''}
+    value={object.custom.promoCodeStr}
+    label={'Promo Code'}
+    object="segment-order"
+  />
+                            <Row
+    field={''}
+    value={object.custom.promoDiscountAmountStr}
+    label={'Promo Discount Amount'}
+    object="segment-order"
+  />
+		</Column>
+	</Grid>
+  
+  
+  	<Grid style={{ margin: "10px" }}>
+		<Column size="ten">
+<hr />
+               <h4>Product Name</h4>
+                    {_.map(_.get(data, 'kobject.data.properties.product_name'), (item) => {
+        return (
+               <div>{item}</div>
+)})}
+		</Column>
+		<Column size="three">
+<hr />
+               <h4>Product Price</h4>
+                    {_.map(_.get(data, 'kobject.data.properties.product_price'), (item) =>  {
+        return (
+               <div>{item}</div>
+)})}
+		</Column>
+      <Column size="three">
+        <hr />
+               <h4>Product Quantity</h4>
+                    {_.map(_.get(data, 'kobject.data.properties.product_quantity' ), (item) => {
+          return  (
+               <div>{item}</div>
+)})}
+        
+      </Column>
+    
+	</Grid>
+
+</Segment>

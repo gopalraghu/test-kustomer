@@ -5,17 +5,11 @@
             function loadContext() {
                 // Kustomer.initialize is required for card visibility in the panel.
                 Kustomer.initialize(function(contextJSON) {
-                    var customer_attributes = contextJSON.customer;
+                    var order_details = contextJSON.kobject;
                     if (customer_attributes.emails.length) {
-                        var email = customer_attributes.emails[0].email;
-                        console.log("email"+email)
-                        var a = document.createElement('a');
-                        var linkText = document.createTextNode("Google");
-                        a.appendChild(linkText);
-                        a.title = "Search google for information about the customer";
-                        a.href = "https://www.google.com/#q=" + encodeURIComponent(email);
-                        a.target = "_blank";
-                        document.getElementById("container").appendChild(a);
+                        var newlabel = document.createElement("Label");
+                        newlabel.innerHTML = order_details.title;
+                        document.getElementById("container").appendChild(newlabel);
                         Kustomer.resize();
                     } else {
                         // Closes the card if the customer has no email addresses.
@@ -33,28 +27,7 @@
                 </div>
             </div>
             <hr class="lineBreak">
-            <div id="container" class="ui one textArea"></div>
-            <Segment>
-            <Grid style={{ margin: "10px" }}>
-            <Column size="eight">
-            <Row
-                label={'Order ID'}
-              />
-              <Row
-              label={'Order ID'}
-            />
-            <Row
-            label={'Order ID'}
-          />
-          <Row
-          label={'Order ID'}
-        />
-        <Row
-        label={'Order ID'}
-      />
-            </Column></Grid>
-            </Segment>
-            
+            <div id="container" class="ui one textArea"></div>    
         </div>
     </body>
 </html>
