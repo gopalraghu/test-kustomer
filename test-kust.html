@@ -6,9 +6,9 @@
                 // Kustomer.initialize is required for card visibility in the panel.
                 Kustomer.initialize(function(contextJSON) {
                         console.log(contextJSON)
-                        var order_details = contextJSON.kobject;
+                        var order_details = contextJSON.order;
                         var newlabel = document.createElement("Label");
-                        newlabel.innerHTML = order_details.title;
+                        newlabel.innerHTML = order_details.properties.order_id;
                         document.getElementById("container").appendChild(newlabel);
                         Kustomer.resize();
                 });
