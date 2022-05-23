@@ -34,6 +34,19 @@
                 $("#timer").text(data.datetime)
             })
         }
+
+        function triggerWorkflow(orderId)
+        {
+            const res = await fetch('https://api.prod2.kustomerapp.com/v1/hooks/web/61dc47fb0b2275511c64e612/575c4c834837541fe4ae8af03458a5fd6396bfdcbf8bc1a132c54f6d8f79c920',
+            {
+             method: "POST",
+             headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({"orderId": orderId})
+            })
+        }
     </script>
 </head>
 
@@ -42,30 +55,32 @@
     <script id="mp_template" type="text/template">
 <div class="container">
  <div class="row">
-        <div class="col">  
+        <div class="col-sm-3">  
         </div>
-        <div class="col">  
+        <div class="col-sm-3">  
         </div>
-        <div class="col">  
-            <button type="button" class="btn btn-primary">Cancel Order</button>
+        <div class="col-sm-3">  
+            <button type="button" class="btn btn-primary" onclick="triggerWorkflow( {{order.properties.order_id}})">Cancel Order</button>
         </div>
-        <div class="col">  
+        <div class="col-sm-3">  
             <button type="button" class="btn btn-secondary">Issue Refund</button>
         </div>
  </div> 
   <dl class="row">
-    <dt class="col-sm-4">
+    <dt class="col-sm-3">
      Order #
     </dt>
-        <dd class="col-sm-4">
+        <dd class="col-sm-3">
     {{order.properties.order_id}}
         </dd>
-    <dt class="col-sm-4">
+    <dt class="col-sm-3">
         Status
     </dt>
-    <dd class="col-sm-4">
+    <dd class="col-sm-3">
       {{order.event}}
     </dd>
+</dl>
+<dl class="row">
     <dt class="col-sm-4">
         Timer
     </dt>
@@ -75,16 +90,16 @@
    
   </dl>
   <dl class="row">
-    <dt class="col-sm-4">
+    <dt class="col-sm-3">
         Cart Amount
     </dt>
-    <dd class="col-sm-4">
+    <dd class="col-sm-3">
             {{order.properties.cart_amount}}
     </dd>
-    <dt class="col-sm-4">
+    <dt class="col-sm-3">
         Currency
     </dt>
-    <dd class="col-sm-4">
+    <dd class="col-sm-3">
         {{order.properties.currency}}
     </dd>
     
@@ -104,15 +119,15 @@
  {{#order.properties.fullProd}}
  <dl class="row">
 
-    <dt class="col-sm-4">
+    <dd class="col-sm-4">
       {{name}}
-    </dt>
-    <dt class="col-sm-4">
+    </dd>
+    <dd class="col-sm-4">
         {{qty}}
-    </dt>
-    <dt class="col-sm-4">
+    </dd>
+    <dd class="col-sm-4">
         {{price}}
-    </dt>
+    </dd>
  </dl>
  {{/order.properties.fullProd}}
 </div>
