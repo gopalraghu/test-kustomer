@@ -28,86 +28,86 @@
 </head>
 
 <body onload="loadContext()">
-    <h6>Order Details</h6>
     <script id="mp_template" type="text/template">
 <div class="container">
+    <div class="row">
+        <div class="col-sm-4">  
+        </div>
+        <div class="col-sm-4">  
+            <button type="button" class="btn btn-primary">Cancel Order</button>
+        </div>
+        <div class="col-sm-4">  
+            <button type="button" class="btn btn-secondary">Issue Refund</button>
+        </div>
+      </div>
   <dl class="row">
-    <dt class="col-sm-3">
+    <dt class="col-sm-4">
      Order #
     </dt>
-        <dd class="col-sm-9">
+        <dd class="col-sm-4">
     {{order.properties.order_id}}
         </dd>
-    <dt class="col-sm-3">
+    <dt class="col-sm-4">
         Status
     </dt>
-    <dd class="col-sm-9">
+    <dd class="col-sm-4">
       {{order.event}}
     </dd>
-    <dt class="col-sm-3">
+    <dt class="col-sm-4">
         Timer
     </dt>
-    <dd class="col-sm-9">
+    <dd  id = "timer" class="col-sm-4">
         Will load time here shortly
     </dd>
    
   </dl>
   <dl class="row">
-    <dt class="col-sm-3">
+    <dt class="col-sm-4">
         Cart Amount
     </dt>
-    <dd class="col-sm-9">
+    <dd class="col-sm-4">
             {{order.properties.cart_amount}}
     </dd>
-    <dt class="col-sm-3">
+    <dt class="col-sm-4">
         Currency
     </dt>
-    <dd class="col-sm-9">
+    <dd class="col-sm-4">
         {{order.properties.currency}}
     </dd>
     
   </dl>
   <dl class="row">
 
-    <dt class="col-sm-3">
+    <dt class="col-sm-4">
       Products
     </dt>
-    <dt class="col-sm-3">
+    <dt class="col-sm-4">
        Qty
     </dt>
-    <dt class="col-sm-3">
+    <dt class="col-sm-4">
         Prize
     </dt>
  </dl>
     <!-- <div class="col ">  
         <label class="col-sm-3" for="staticEmail" ></label>
         {{#order.properties.product_name}}
-        <label class="col-sm-9" for="staticEmail" >{{.}}</label> </br>
+        <label class="col-sm-4" for="staticEmail" >{{.}}</label> </br>
         {{/order.properties.product_name}}
     </div>
     <div class="col">
         <label class="col-sm-3" for="staticEmail" >Qty</label>
         {{#order.properties.product_quantity}}
-        <label class="col-sm-9" for="staticEmail" >{{.}}</label></br>
+        <label class="col-sm-4" for="staticEmail" >{{.}}</label></br>
         {{/order.properties.product_quantity}}
     </div>
     <div class="col">
         <label class="col-sm-3" for="staticEmail" ></label>
         {{#order.properties.product_price}}
-        <label class="col-sm-9" for="staticEmail" >{{.}}</label></br>
+        <label class="col-sm-4" for="staticEmail" >{{.}}</label></br>
         {{/order.properties.product_price}}
     </div> -->
   
-  <div class="row">
-    <div class="col ">  
-    </div>
-    <div class="col ">  
-        <button type="button" class="btn btn-primary">Cancel Order</button>
-    </div>
-    <div class="col ">  
-        <button type="button" class="btn btn-secondary">Issue Refund</button>
-    </div>
-  </div>
+ 
 </div>
 </script>
     <div id="panel">
