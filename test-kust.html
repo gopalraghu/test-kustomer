@@ -19,10 +19,10 @@
         }
          async function getTimer()
         {
-                    console.log("calling timer api")
-                    const res =  await fetch('https://worldtimeapi.org/api/timezone/Asia/Dhaka');
-                    console.log("res",res.body)
-                    $("#timer").text(res.body)
+                    const res =  await fetch('https://worldtimeapi.org/api/timezone/Asia/Dhaka')
+                    res.json().then(data=>{
+                        $("#timer").text(data.datetime)   
+                    })
         }
     </script>
 </head>
