@@ -8,28 +8,34 @@
             // Kustomer.initialize is required for card visibility in the panel.
             Kustomer.initialize(function (contextJSON) {
                 console.log(contextJSON)
+                let products = []
+                let prod_list = contextJSON.order.properties.product_name
+                prod_list.forEach((item, index) => {
+                    let prod = { "name": item, "qty": contextJson.order.properties.product_quantity[index], "price": contextJson.order.properties.product_price[index] }
+                    products.push(prod)
+                })
+                contextJSON.order.properties.fullProd=products
                 var template = $("#mp_template").html();
                 $("#panel").html(Mustache.render(template, contextJSON));
-                let timerID = setInterval(function(){
+                let timerID = setInterval(function () {
                     getTimer()
                 }, 5000);
                 Kustomer.resize();
             });
 
         }
-         async function getTimer()
-        {
-                    const res =  await fetch('https://worldtimeapi.org/api/timezone/Asia/Dhaka')
-                    res.json().then(data=>{
-                        $("#timer").text(data.datetime)   
-                    })
+        async function getTimer() {
+            const res = await fetch('https://worldtimeapi.org/api/timezone/Asia/Dhaka')
+            res.json().then(data => {
+                $("#timer").text(data.datetime)
+            })
         }
     </script>
 </head>
 
 <body onload="loadContext()">
-<h4>Order details</h4>
-<script id="mp_template" type="text/template">
+    <h4>Order details</h4>
+    <script id="mp_template" type="text/template">
 <div class="container">
     <!-- <div class="row">
         <div class="col">  
@@ -89,7 +95,20 @@
         Prize
     </dt>
  </dl>
+ {{#contextJSON.order.properties.fullProd}}
+ <dl class="row">
 
+    <dt class="col-sm-4">
+      {{.name}}
+    </dt>
+    <dt class="col-sm-4">
+        {{.qty}}
+    </dt>
+    <dt class="col-sm-4">
+        {{.price}}
+    </dt>
+ </dl>
+ {{/contextJSON.order.properties.fullProd}}
 </div>
 </script>
     <div id="panel">
