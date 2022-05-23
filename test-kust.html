@@ -10,20 +10,20 @@
                 console.log(contextJSON)
                 var template = $("#mp_template").html();
                 $("#panel").html(Mustache.render(template, contextJSON));
-                let timerID = setInterval(function(){
+                let timerID = setInterval(function () {
                     getTimer()
                 }, 5000);
                 Kustomer.resize();
             });
 
         }
-         async function getTimer()
-        {
-                    const res =  await fetch('https://worldtimeapi.org/api/timezone/Asia/Dhaka')
-                    res.json().then(data=>{
-                        $("#timer").text(data.datetime)   
-                    })
+        async function getTimer() {
+            const res = await fetch('https://worldtimeapi.org/api/timezone/Asia/Dhaka')
+            res.json().then(data => {
+                $("#timer").text(data.datetime)
+            })
         }
+
     </script>
 </head>
 
@@ -31,33 +31,56 @@
     <h6>Order Details</h6>
     <script id="mp_template" type="text/template">
 <div class="container">
-  <div class="row">
-    <div class="col ">
-        <label class="col-sm-3">Order #</label>
-        <label >{{order.properties.order_id}}</label>
-    </div>
-    <div class="col ">
-        <label class="col-sm-3">Status</label>
-        <label >{{order.event}}</label>
-    </div>
-   <div class="col ">
-        <label class="col-sm-3">Timer</label>
-        <label  id="timer" >{{order.event}}</label>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col ">
-        <label class="col-sm-3" >Cart Amount</label>
-        <label class="col-sm-9">{{order.properties.cart_amount}}</label>
-    </div>
-    <div class="col">
-        <label class="col-sm-3">Currency</label>
-        <label class="col-sm-9">{{order.properties.currency}}</label>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col ">  
-        <label class="col-sm-3" for="staticEmail" >Products</label>
+  <dl class="row">
+    <dt class="col-sm-3">
+     Order #
+    </dt>
+        <dd class="col-sm-9">
+    {{order.properties.order_id}}
+        </dd>
+    <dt class="col-sm-3">
+        Status
+    </dt>
+    <dd class="col-sm-9">
+      {{order.event}}
+    </dd>
+    <dt class="col-sm-3">
+        Timer
+    </dt>
+    <dd class="col-sm-9">
+        Will load time here shortly
+    </dd>
+   
+  </dl>
+  <dl class="row">
+    <dt class="col-sm-3">
+        Cart Amount
+    </dt>
+    <dd class="col-sm-9">
+            {{order.properties.cart_amount}}
+    </dd>
+    <dt class="col-sm-3">
+        Currency
+    </dt>
+    <dd class="col-sm-9">
+        {{order.properties.currency}}
+    </dd>
+    
+  </dl>
+  <dl class="row">
+
+    <dt class="col-sm-3">
+      Products
+    </dt>
+    <dt class="col-sm-3">
+       Qty
+    </dt>
+    <dt class="col-sm-3">
+        Prize
+    </dt>
+ </dl>
+    <!-- <div class="col ">  
+        <label class="col-sm-3" for="staticEmail" ></label>
         {{#order.properties.product_name}}
         <label class="col-sm-9" for="staticEmail" >{{.}}</label> </br>
         {{/order.properties.product_name}}
@@ -69,12 +92,12 @@
         {{/order.properties.product_quantity}}
     </div>
     <div class="col">
-        <label class="col-sm-3" for="staticEmail" >Prize</label>
+        <label class="col-sm-3" for="staticEmail" ></label>
         {{#order.properties.product_price}}
         <label class="col-sm-9" for="staticEmail" >{{.}}</label></br>
         {{/order.properties.product_price}}
-    </div>
-  </div>
+    </div> -->
+  
   <div class="row">
     <div class="col ">  
     </div>
