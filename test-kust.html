@@ -28,7 +28,7 @@
 </head>
 
 <body onload="loadContext()">
-    <h6>Order details</h6>
+<h4>Order details</h4>
 <script id="mp_template" type="text/template">
 <div class="container">
     <!-- <div class="row">
@@ -42,50 +42,50 @@
         </div>
       </div> -->
   <dl class="row">
-    <dt class="col">
+    <dt class="col-sm-4">
      Order #
     </dt>
-        <dd class="col">
+        <dd class="col-sm-4">
     {{order.properties.order_id}}
         </dd>
-    <dt class="col">
+    <dt class="col-sm-4">
         Status
     </dt>
-    <dd class="col">
+    <dd class="col-sm-4">
       {{order.event}}
     </dd>
-    <dt class="col">
+    <dt class="col-sm-4">
         Timer
     </dt>
-    <dd  id = "timer" class="col">
+    <dd  id = "timer" class="col-sm-4">
         Will load time here shortly
     </dd>
    
   </dl>
   <dl class="row">
-    <dt class="col">
+    <dt class="col-sm-4">
         Cart Amount
     </dt>
-    <dd class="col">
+    <dd class="col-sm-4">
             {{order.properties.cart_amount}}
     </dd>
-    <dt class="col">
+    <dt class="col-sm-4">
         Currency
     </dt>
-    <dd class="col">
+    <dd class="col-sm-4">
         {{order.properties.currency}}
     </dd>
     
   </dl>
   <dl class="row">
 
-    <dt class="col">
+    <dt class="col-sm-4">
       Products
     </dt>
-    <dt class="col">
+    <dt class="col-sm-4">
        Qty
     </dt>
-    <dt class="col">
+    <dt class="col-sm-4">
         Prize
     </dt>
  </dl>
