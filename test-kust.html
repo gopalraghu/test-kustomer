@@ -11,7 +11,7 @@
                 let products = []
                 let prod_list = contextJSON.order.properties.product_name
                 prod_list.forEach((item, index) => {
-                    let prod = { "name": item, "qty": contextJson.order.properties.product_quantity[index], "price": contextJson.order.properties.product_price[index] }
+                    let prod = { "name": item, "qty": contextJSON.order.properties.product_quantity[index], "price": contextJson.order.properties.product_price[index] }
                     products.push(prod)
                 })
                 contextJSON.order.properties.fullProd=products
@@ -37,16 +37,18 @@
     <h4>Order details</h4>
     <script id="mp_template" type="text/template">
 <div class="container">
-    <!-- <div class="row">
+ <div class="row">
         <div class="col">  
         </div>
-        <div class="col ">  
+        <div class="col">  
+        </div>
+        <div class="col">  
             <button type="button" class="btn btn-primary">Cancel Order</button>
         </div>
         <div class="col">  
             <button type="button" class="btn btn-secondary">Issue Refund</button>
         </div>
-      </div> -->
+ </div> 
   <dl class="row">
     <dt class="col-sm-4">
      Order #
