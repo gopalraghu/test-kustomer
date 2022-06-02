@@ -5,6 +5,7 @@
     <script src="https://cdn.kustomerapp.com/card-js/latest/kustomer-card.min.js"></script>
     <script>
         function loadContext() {
+            var context = contextJSON
             // Kustomer.initialize is required for card visibility in the panel.
             Kustomer.initialize(function (contextJSON) {
                 console.log(contextJSON)
@@ -20,6 +21,7 @@
                 })
                 contextJSON.order.properties.fullProd = products
                 var template = $("#mp_template").html();
+                
                 $("#panel").html(Mustache.render(template, contextJSON));
                 let timerID = setInterval(function () {
                     getTimer()
@@ -44,7 +46,7 @@
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({"orderId": contextJSON.order.properties.order_id})
+            body: JSON.stringify({"orderId": context.order.properties.order_id})
             })
         }
     </script>
