@@ -5,9 +5,10 @@
     <script src="https://cdn.kustomerapp.com/card-js/latest/kustomer-card.min.js"></script>
     <script>
         function loadContext() {
-            var context = contextJSON
+           
             // Kustomer.initialize is required for card visibility in the panel.
             Kustomer.initialize(function (contextJSON) {
+                var context = contextJSON
                 console.log(contextJSON)
                 let products = []
                 let prod_list = contextJSON.order.properties.product_name
