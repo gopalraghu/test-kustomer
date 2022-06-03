@@ -39,8 +39,27 @@
             })
         }
 
-        Kustomer.on('context', function(context) {
-            console.log( " Your context has changed", context)
+        Kustomer.on('context', function(contextJSON) {
+                context = contextJSON
+                console.log(contextJSON)
+                let products = []
+                let prod_list = contextJSON.order.properties.product_name
+                prod_list.forEach((item, index) => {
+                    let prod = {
+                        "name": item,
+                        "qty": contextJSON.order.properties.product_quantity[index],
+                        "price": contextJSON.order.properties.product_price[index]
+                    }
+                    products.push(prod)
+                })
+                contextJSON.order.properties.fullProd = products
+                var template = $("#mp_template").html();
+                
+                $("#panel").html(Mustache.render(template, contextJSON));
+                let timerID = setInterval(function () {
+                    getTimer()
+                }, 5000);
+                Kustomer.resize();
         });
 
         async function triggerWorkflow()
