@@ -74,10 +74,22 @@
             body: JSON.stringify({"orderId": context.order.properties.order_id})
             })
         }
+
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        }
     </script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id"
+        content="427092234754-6emdfnokkudte85jjsr8b5ja97pku0cs.apps.googleusercontent.com">
 </head>
 
 <body onload="loadContext()">
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
     <h4>Order details</h4>
     <script id="mp_template" type="text/template">
 <div class="container">
